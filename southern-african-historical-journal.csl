@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="en"/>
+<info>
+    <title>Southern African Historical Journal</title>
+    <id>http://www.zotero.org/styles/southern-african-historical-journal</id>
+    <link href="http://www.zotero.org/styles/southern-african-historical-journal" rel="self"/>
+    <link href="https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rshj20#style" rel="documentation"/>
+    <author>
+        <name>Mark Hackney</author>
+        <email>mark.hackney.research@gmail.com</email>
+    </author>
+    <category citation-format="note"/>
+    <category field="history"/>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License.</rights>
+</info>
