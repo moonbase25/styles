@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="en"/>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="en" page-range-format="chicago-16"/>
 <info>
     <title>Southern African Historical Journal</title>
     <id>http://www.zotero.org/styles/southern-african-historical-journal</id>
@@ -13,3 +13,12 @@
     <category field="history"/>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License.</rights>
 </info>
+<citation and="text">
+    <layout>
+        <names variable="author"/>
+    </layout>
+</citation>
+<bibliography>
+    <layout/>
+</bibliography>
+</style>
