@@ -31,21 +31,76 @@
         <multiple> vols. </multiple>
       </term>
     </terms>
-    <date form="text" date-parts="year-month-day" variable="issued">
-      <date-part name="day" suffix=" "/>
-      <date-part name="month" suffix=" "/>
-      <date-part name="year"/>
-    </date>
-  </locale>
-  <macro name="author">
-    <names variable="author" delimiter=", "/>
-  </macro>
-  <macro name="editor">
-    <names variable="editor" delimiter=", ">
-      <label form="short"/>
-    </names>
-  </macro>
-  <macro name="book-editor">
-    <text value="edited by "/>
-    <names variable="editor" delimiter=", "/>
-  </macro>
+    </locale>
+    <macro name="author-name-note">
+      <choose>
+        <if match="any" position="first">
+          <names variable="author" delimiter=", "/>
+        </if>
+        <else-if>
+          <names variable="author" delimiter=", ">
+            <name form="short"/>
+          </names>
+        </else-if>
+      </choose>
+    </macro>
+    <macro name="author-name-bibliography">
+      <names variable="author" delimiter=",">
+        <name name-as-sort-order="first"/>
+      </names>
+    </macro>
+    <macro name="editor-name-note">
+      <choose>
+        <if match="any" position="first">
+          <names variable="editor" delimiter=", ">
+            <label form="short" prefix=" "/>
+          </names>
+        </if>
+        <else-if match="any" position="subsequent">
+          <names variable="editor" delimiter=", ">
+            <name form="short"/>
+          </names>
+        </else-if>
+      </choose>
+    </macro>
+    <macro name="editor-name-bibliography">
+      <names variable="editor" delimiter=", ">
+        <name name-as-sort-order="first"/>
+        <label form="short" prefix=" "/>
+      </names>
+    </macro>
+    <macro name="book-title">
+      <choose>
+        <if match="any" position="first">
+          <text variable="title" font-style="italic"/>
+        </if>
+        <else-if match="any" position="subsequent">
+          <text variable="title" font-style="italic" form="short"/>
+        </else-if>
+      </choose>
+    </macro>
+    <macro name="article-title">
+      <choose>
+        <if match="any" position="first">
+          <text variable="title" quotes="true"/>
+        </if>
+        <else-if match="any" position="subsequent">
+          <text variable="title" quotes="true" form="short"/>
+        </else-if>
+      </choose>
+    </macro>
+    <macro name="periodical-title">
+      <choose>
+        <if match="any" position="first">
+          <text variable="container-title" font-style="italic"/>
+        </if>
+        <else-if match="any" position="first">
+          <text variable="container-title" font-style="italic" form="short"/>
+        </else-if>
+      </choose>
+    </macro>
+    <macro name="edition-number">
+      <text variable="edition">
+        <label form="short" prefix=" "/>
+      </text>
+    </macro>
