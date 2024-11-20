@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style class="note" version="1.0" name-delimiter=", " and="text" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3" et-al-subsequent-min="3" et-al-subsequent-use-first="1" initialize-with="." page-range-format="minimal-two" demote-non-dropping-particle="never">
+  <info>
+    <title>Historia</title>
+    <id>http://www.zotero.org/styles/historia</id>
+    <link href="http://www.zotero.org/styles/historia" rel="self"/>
+    <link href="https://upjournals.up.ac.za/index.php/historia/article/view/5274/4215" rel="documentation"/>
+    <author>
+      <name>Mark Hackney</name>
+      <email>moonbase25@proton.me</email>
+    </author>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <category citation-format="note"/>
+    <category field="history"/>
+    <eissn>2309-8392</eissn>
+    <eissn>0018-229X</eissn>
+    <summary>Formatting style for the journal, Historia, published by the University of Pretoria</summary>
+    <updated>2024-11-20T19:26:40+00:00</updated>
+  </info>
+  <locale>
+    <date form="text" date-parts="year-month-day" variable="issued">
+      <date-part name="day" suffix=" "/>
+      <date-part name="month" suffix=" "/>
+      <date-part name="year"/>
+    </date>
+  </locale>
+  <citation>
+    <layout>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout>
+    </layout>
+  </bibliography>
+</style>
