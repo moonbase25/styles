@@ -1,35 +1,306 @@
-<?xml version="1.0" encoding="utf-8"?>
-<style class="note" version="1.0" name-delimiter=", " and="text" delimiter-precedes-et-al="never" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3" et-al-subsequent-min="3" et-al-subsequent-use-first="1" initialize-with="." page-range-format="minimal-two" demote-non-dropping-particle="never">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" name-delimiter=", " and="text" delimiter-precedes-et-al="contextual" delimiter-precedes-last="contextual" et-al-min="4" et-al-use-first="3" et-al-subsequent-min="3" et-al-subsequent-use-first="1" initialize-with="." page-range-format="minimal-two" demote-non-dropping-particle="never">
   <info>
     <title>Historia</title>
     <id>http://www.zotero.org/styles/historia</id>
-    <link href="http://www.zotero.org/styles/historia" rel="self"/>
-    <link href="https://upjournals.up.ac.za/index.php/historia/article/view/5274/4215" rel="documentation"/>
+    <link href="http://www.zotero.org/styles/historia" rel="self" />
+    <link href="https://upjournals.up.ac.za/index.php/historia/article/view/5274/4215" rel="documentation" />
     <author>
       <name>Mark Hackney</name>
       <email>moonbase25@proton.me</email>
     </author>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
-    <category citation-format="note"/>
-    <category field="history"/>
+    <category citation-format="note" />
+    <category field="history" />
     <eissn>2309-8392</eissn>
-    <eissn>0018-229X</eissn>
+    <issnl>0018-229X</issnl>
     <summary>Formatting style for the journal, Historia, published by the University of Pretoria</summary>
     <updated>2024-11-20T19:26:40+00:00</updated>
   </info>
+  <!--This style is a work in progress and does not contain reference styles for archival documents or for interviews. For such sources, footnotes will need to be inserted manually, as per the author guidelines.-->
   <locale>
+    <terms>
+      <term name="editor" form="short">
+        <single>ed</single>
+        <multiple>eds</multiple>
+      </term>
+      <term name="volume" form="short">
+        <single>vol.</single>
+        <multiple>vols.</multiple>
+      </term>
+      <term name="edition" form="short">ed.</term>
+      <term name="editor" form="verb">edited by</term>
+    </terms>
     <date form="text" date-parts="year-month-day" variable="issued">
-      <date-part name="day" suffix=" "/>
-      <date-part name="month" suffix=" "/>
-      <date-part name="year"/>
+      <date-part name="day" suffix=" " />
+      <date-part name="month" suffix=" " />
+      <date-part name="year" />
     </date>
   </locale>
+  <macro name="book-title-note">
+    <choose>
+      <if match="any" position="first">
+        <text variable="title" font-style="italic" text-case="title" />
+        <choose>
+          <if variable="volume" match="any">
+            <text term="volume" form="short" prefix=", "/>
+            <text variable="volume" prefix=" "/>
+          </if>
+        </choose>
+        <choose>
+          <if variable="edition" match="any">
+            <text variable="edition" prefix=", "/>
+            <text term="edition" form="short" prefix=" "/>
+          </if>
+        </choose>
+      </if>
+      <else>
+        <text variable="title" form="short" font-style="italic" text-case="title" />
+      </else>
+    </choose>
+  </macro>
+  <macro name="book-title-bibliography">
+    <text variable="title" font-style="italic" text-case="title"/>
+    <choose>
+      <if variable="volume" match="any">
+        <text term="volume" form="short" prefix=", "/>
+        <text variable="volume" prefix=" "/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="edition" match="any">
+        <text variable="edition" prefix=", "/>
+        <text term="edition" form="short" prefix=" "/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="book-publication-details-note">
+    <choose>
+      <if variable="publisher-place publisher issued" match="all">
+        <group prefix="(" suffix=")">
+          <text variable="publisher-place" suffix=": " />
+          <text variable="publisher" suffix=", " />
+          <date date-parts="year" form="numeric" variable="issued" />
+        </group>
+      </if>
+      <else-if variable="publisher-place publisher" match="all">
+        <group prefix="(" suffix=")">
+          <text variable="publisher-place" suffix=": " />
+          <text variable="publisher" />
+        </group>
+      </else-if>
+      <else-if variable="publisher-place issued" match="all">
+        <group prefix="(" suffix=")">
+          <text variable="publisher-place" suffix=": " />
+          <date date-parts="year" form="numeric" variable="issued" />
+        </group>
+      </else-if>
+      <else-if variable="publisher issued" match="all">
+        <group prefix="(" suffix=")">
+          <text variable="publisher" suffix=", " />
+          <date date-parts="year" form="numeric" variable="issued" />
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="book-publication-details-bibliography">
+    <choose>
+      <if variable="publisher-place publisher issued" match="all">
+        <group>
+          <text variable="publisher-place" suffix=": "/>
+          <text variable="publisher" suffix=", "/>
+          <date date-parts="year" form="numeric" variable="issued"/>
+        </group>
+      </if>
+      <else-if variable="publisher-place publisher" match="all">
+        <group>
+          <text variable="publisher-place" suffix=": "/>
+          <text variable="publisher"/>
+        </group>
+      </else-if>
+      <else-if variable="publisher-place issued" match="all">
+        <group>
+          <text variable="publisher-place" suffix=": "/>
+          <date date-parts="year" form="numeric"  variable="issued"/>
+        </group>
+      </else-if>
+      <else-if variable="publisher issued" match="all">
+        <group>
+          <text variable="publisher" suffix=", "/>
+          <date date-parts="year" form="numeric" variable="issued"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="book-edition-note">
+    <text variable="edition" />
+    <text term="edition" form="short" prefix=" " />
+  </macro>
+  <macro name="book-edition-bibliography">
+    <text variable="edition"/>
+    <text term="edition" form="short" prefix=" "/>
+  </macro>
+  <macro name="contributor-note">
+    <choose>
+      <if match="any" position="first">
+        <names variable="author">
+          <substitute>
+            <text macro="editor-note" />
+          </substitute>
+        </names>
+      </if>
+      <else>
+        <names variable="author">
+          <name form="short" />
+          <substitute>
+            <text macro="editor-note" />
+          </substitute>
+        </names>
+      </else>
+    </choose>
+  </macro>
+  <macro name="contributor-bibliography">
+    <names variable="author" name-as-sort-order="first">
+      <substitute>
+        <text macro="editor-bibliography"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="editor-note">
+    <choose>
+      <if match="any" position="first">
+        <names variable="editor">
+          <label form="short" prefix=" " />
+        </names>
+      </if>
+      <else>
+        <names variable="editor">
+          <name form="short" />
+        </names>
+      </else>
+    </choose>
+  </macro>
+  <macro name="editor-bibliography">
+    <names variable="editor">
+      <label form="short" prefix=" "/>
+    </names>
+  </macro>
+  <macro name="edited-book-title-note">
+    <text variable="container-title" font-style="italic" text-case="title"/>
+    <choose>
+      <if variable="volume" match="any">
+        <text term="volume" form="short" prefix=", "/>
+        <text variable="volume" prefix=" "/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="edition" match="any">
+        <text variable="edition" prefix=", "/>
+        <text term="edition" form="short" prefix=" "/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="edited-book-title-bibliography">
+    <text variable="container-title" font-style="italic" text-case="title"/>
+    <choose>
+      <if variable="volume" match="any">
+        <text term="volume" form="short" prefix=", "/>
+        <text variable="volume" prefix=" "/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="edition" match="any">
+        <text variable="edition" prefix=", "/>
+        <term variable="edition" form="short" prefix=" "/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="journal-article-title-note">
+    <choose>
+      <if match="any" position="first">
+        <text variable="title" prefix="'" suffix="'" text-case="title"/>
+      </if>
+      <else>
+        <text variable="title" prefix="'" suffix="'" text-case="title" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="journal-article-title-bibliography">
+    <text variable="title" prefix="'" suffix="'" text-case="title"/>
+  </macro>
+  <macro name="journal-article-publication-details-note">
+    <text variable="container-title" font-style="italic" suffix=" "/>
+    <choose>
+      <if variable="volume issue issued" match="all">
+        <text variable="volume" suffix=", "/>
+        <text variable="issue" suffix=" "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </if>
+      <else-if variable="volume issue" match="all">
+        <text variable="volume" suffix=", "/>
+        <text variable="issue"/>
+      </else-if>
+      <else-if variable="volume issued" match="all">
+        <text variable="volume" suffix=", "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </else-if>
+      <else-if variable="issue issued" match="all">
+        <text variable="issue" suffix=" "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="journal-article-publication-details-bibliography">
+    <text variable="container-title" font-style="italic" suffix=" "/>
+    <choose>
+      <if variable="volume issue issued" match="all">
+        <text variable="volume" suffix=", "/>
+        <text variable="issue" suffix=" "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </if>
+      <else-if variable="volume issue" match="all">
+        <text variable="volume" suffix=", "/>
+        <text variable="issue"/>
+      </else-if>
+      <else-if variable="volume issued" match="all">
+        <text variable="volume" suffix=", "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </else-if>
+      <else-if variable="issue issued" match="all">
+        <text variable="issue" suffix=" "/>
+        <date date-parts="year" prefix="(" suffix=")" form="numeric" variable="issued"/>
+      </else-if>
+    </choose>
+  </macro>
   <citation>
-    <layout>
+    <layout delimiter="; " suffix=".">
+      <choose>
+        <if match="any" type="book">
+          <text macro="contributor-note" suffix=", "/>
+          <text macro="book-title-note"/>
+          <choose>
+            <if match="any" position="first">
+              <text macro="book-publication-details-note" prefix=" "/>
+            </if>
+          </choose>
+          <choose>
+            <if match="any" variable="locator">
+              <number variable="locator" prefix=", "/>
+            </if>
+          </choose>
+        </if>
+      </choose>
     </layout>
   </citation>
   <bibliography>
-    <layout>
+    <layout suffix=".">
+      <choose>
+        <if match="any" type="book">
+          <text macro="contributor-bibliography" suffix=". "/>
+          <text macro="book-title-bibliography" suffix=". "/>
+          <text macro="book-publication-details-bibliography"/>
+        </if>
+      </choose>
     </layout>
   </bibliography>
 </style>
